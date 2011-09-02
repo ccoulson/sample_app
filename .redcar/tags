@@ -1,4 +1,4 @@
-1314995415
+1314995708
 Application	/home/ccoulson/rails_projects/sample_app/config/application.rb	  class Application 
 ApplicationController	/home/ccoulson/rails_projects/sample_app/app/controllers/application_controller.rb	class ApplicationController 
 ApplicationHelper	/home/ccoulson/rails_projects/sample_app/app/helpers/application_helper.rb	module ApplicationHelper
