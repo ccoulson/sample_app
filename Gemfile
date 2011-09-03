@@ -12,5 +12,7 @@ group :test do
   gem 'webrat', '0.7.1'
   gem 'spork', '0.9.0.rc8'
   gem 'ZenTest'
+  gem 'autotest', '4.4.6'
+  
   #gem 'redgreen'
 end
