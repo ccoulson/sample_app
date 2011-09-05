@@ -1,5 +1,7 @@
-1315166496
+1315190572
 AddEmailUniquenessIndex	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904033332_add_email_uniqueness_index.rb	class AddEmailUniquenessIndex 
+AddPasswordToUsers	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904205525_add_password_to_users.rb	class AddPasswordToUsers 
+AddSaltToUsers	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904233729_add_salt_to_users.rb	class AddSaltToUsers 
 Application	/home/ccoulson/rails_projects/sample_app/config/application.rb	  class Application 
 ApplicationController	/home/ccoulson/rails_projects/sample_app/app/controllers/application_controller.rb	class ApplicationController 
 ApplicationHelper	/home/ccoulson/rails_projects/sample_app/app/helpers/application_helper.rb	module ApplicationHelper
@@ -20,6 +22,7 @@ addText	/home/ccoulson/rails_projects/sample_app/public/javascripts/controls.js	
 all	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function all(iterator, context)
 any	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function any(iterator, context)
 argumentNames	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function argumentNames()
+authenticate	/home/ccoulson/rails_projects/sample_app/app/models/user.rb	  def self.authenticate(email, submitted_password)
 bind	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function bind(context)
 bindAsEventListener	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function bindAsEventListener(context)
 blank	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function blank()
@@ -52,11 +55,15 @@ dirNodeCheck	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototy
 dispatch	/home/ccoulson/rails_projects/sample_app/public/javascripts/effects.js	function dispatch(effect, eventName)
 down	/home/ccoulson/rails_projects/sample_app/db/migrate/20110903231912_create_users.rb	  def self.down
 down	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904033332_add_email_uniqueness_index.rb	  def self.down
+down	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904205525_add_password_to_users.rb	  def self.down
+down	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904233729_add_salt_to_users.rb	  def self.down
 each	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function each(iterator)
 each	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function each(iterator, context)
 eachSlice	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function eachSlice(number, iterator, context)
 element	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function element(event)
 empty	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function empty()
+encrypt	/home/ccoulson/rails_projects/sample_app/app/models/user.rb	    def encrypt(string)
+encrypt_password	/home/ccoulson/rails_projects/sample_app/app/models/user.rb	    def encrypt_password
 endsWith	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function endsWith(pattern)
 escapeHTML	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function escapeHTML()
 evalJSON	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function evalJSON(sanitize)
@@ -82,10 +89,12 @@ getLayout	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.
 getOffsetParent	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function getOffsetParent(element)
 getPixelValue	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function getPixelValue(value, property)
 getRootElement	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function getRootElement()
+gravatar_for	/home/ccoulson/rails_projects/sample_app/app/helpers/users_helper.rb	  def gravatar_for(user, options = { :size => 50 })
 grep	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function grep(filter, iterator, context)
 gsub	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function gsub(pattern, replacement)
 handleMethod	/home/ccoulson/rails_projects/sample_app/public/javascripts/rails.js	function handleMethod(element)
 handleRemote	/home/ccoulson/rails_projects/sample_app/public/javascripts/rails.js	function handleRemote(element)
+has_password?	/home/ccoulson/rails_projects/sample_app/app/models/user.rb	  def has_password?(submitted_password)
 help	/home/ccoulson/rails_projects/sample_app/app/controllers/pages_controller.rb	  def help
 home	/home/ccoulson/rails_projects/sample_app/app/controllers/pages_controller.rb	  def home
 inGroupsOf	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function inGroupsOf(number, fillWith)
@@ -129,6 +138,7 @@ klass	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	f
 last	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function last()
 lastIndexOf	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function lastIndexOf(item, i)
 logo	/home/ccoulson/rails_projects/sample_app/app/helpers/application_helper.rb	  def logo
+make_salt	/home/ccoulson/rails_projects/sample_app/app/models/user.rb	    def make_salt
 match	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function match()
 match	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function match(element, selector)
 max	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function max(iterator, context)
@@ -143,6 +153,7 @@ on	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	func
 parseColor	/home/ccoulson/rails_projects/sample_app/public/javascripts/effects.js	function parseColor(color)
 parseJSON	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function parseJSON()
 partition	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function partition(iterator, context)
+password	/home/ccoulson/rails_projects/sample_app/app/models/user.rb	  attr_accessor :password
 pluck	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function pluck(property)
 pointer	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function pointer(event)
 pointerX	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function pointerX(event)
@@ -156,6 +167,7 @@ relativize	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype
 reverse	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function reverse(inline)
 round	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function round()
 scan	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function scan(pattern, iterator)
+secure_hash	/home/ccoulson/rails_projects/sample_app/app/models/user.rb	    def secure_hash(string)
 select	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function select()
 select	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function select(selector, scope)
 set	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function set(key, value)
@@ -201,6 +213,8 @@ uniq	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	fu
 unset	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function unset(key)
 up	/home/ccoulson/rails_projects/sample_app/db/migrate/20110903231912_create_users.rb	  def self.up
 up	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904033332_add_email_uniqueness_index.rb	  def self.up
+up	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904205525_add_password_to_users.rb	  def self.up
+up	/home/ccoulson/rails_projects/sample_app/db/migrate/20110904233729_add_salt_to_users.rb	  def self.up
 update	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function update(array, args)
 update	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function update(element, content)
 update	/home/ccoulson/rails_projects/sample_app/public/javascripts/prototype.js	function update(object)
